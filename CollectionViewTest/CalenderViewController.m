@@ -9,11 +9,12 @@
 #import "CalenderViewController.h"
 #import "CalendarCell.h"
 #import "CalenderDataSource.h"
+#import "CalenderDelegateFlowLayout.h"
 
 @interface CalenderViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) CalenderDataSource* calenderDataSource;
-
+@property (nonatomic) CalenderDelegateFlowLayout* calenderDelegateFlowLayout;
 /**
  *  Selected date displayed by the calendar
  */
@@ -34,7 +35,8 @@
     self.calenderDataSource = [[CalenderDataSource alloc] init];
     self.collectionView.dataSource = self.calenderDataSource;
     
-    //self.selectedDate = [NSDate date];
+    self.calenderDelegateFlowLayout = [[CalenderDelegateFlowLayout alloc] init];
+    self.collectionView.delegate = self.calenderDelegateFlowLayout;
 }
 
 
