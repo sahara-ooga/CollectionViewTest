@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CallenderViewController : UICollectionViewController
-@property (nonatomic) NSArray *days;
+@interface CalenderViewController : UICollectionViewController
 
 @end
 
