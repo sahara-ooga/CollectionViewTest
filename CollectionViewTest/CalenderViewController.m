@@ -17,7 +17,7 @@
 /**
  *  Selected date displayed by the calendar
  */
-@property (nonatomic, strong) NSDate *selectedDate;
+//@property (nonatomic, strong) NSDate *selectedDate;
 
 @end
 
@@ -34,7 +34,7 @@
     self.calenderDataSource = [[CalenderDataSource alloc] init];
     self.collectionView.dataSource = self.calenderDataSource;
     
-    self.selectedDate = [NSDate date];
+    //self.selectedDate = [NSDate date];
 }
 
 

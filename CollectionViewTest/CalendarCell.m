@@ -7,6 +7,8 @@
 //
 
 #import "CalendarCell.h"
+#import "CalenderDataSource.h"
+
 @interface CalendarCell ()
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 @property (nonatomic) NSArray* days;
@@ -16,7 +18,7 @@
 /**
  *  Selected date displayed by the calendar
  */
-@property (nonatomic, strong) NSDate *selectedDate;
+//@property (nonatomic, strong) NSDate *selectedDate;
 
 @end
 
@@ -30,7 +32,7 @@
     
     //FIXME: これはKVOなりで他のクラスと同期をとる
     //FIXME: 選ばれている月
-    self.selectedDate = [NSDate date];
+    //self.selectedDate = [NSDate date];
 }
 
 +(NSString *)className{
@@ -105,8 +107,9 @@
  */
 - (NSDate *)firstDateOfMonth
 {
+    NSDate *selectedDate = [CalenderDataSource sharedDataSource].selectedDate;
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay
-                                                                   fromDate:self.selectedDate];
+                                                                   fromDate:selectedDate];
     components.day = 1;
     
     NSDate *firstDateMonth = [[NSCalendar currentCalendar] dateFromComponents:components];

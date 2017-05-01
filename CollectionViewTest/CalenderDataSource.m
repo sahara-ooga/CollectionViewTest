@@ -20,15 +20,20 @@ NSUInteger const DaysPerWeek = 7;
 
 //@property (nonatomic) NSDate* firstDateOfMonth;
 
-/**
- *  Selected date displayed by the calendar
- */
-@property (nonatomic, strong) NSDate *selectedDate;
-
 @end
 
 @implementation CalenderDataSource
-//@synthesize firstDateOfMonth;
+
+#pragma mark initialize and singleton
+static CalenderDataSource* _sharedInstance = nil;
+
++(CalenderDataSource *)sharedDataSource{
+    if (!_sharedInstance){
+        _sharedInstance = [[CalenderDataSource alloc] init];
+    }
+    
+    return _sharedInstance;
+}
 
 -(id)init{
     self = [super init];
