@@ -76,6 +76,8 @@ style:UIBarButtonItemStylePlain
     [CalenderDataSource sharedDataSource].selectedDate = [[CalenderDataSource sharedDataSource].selectedDate monthAgoDate];
     
     [self.collectionView reloadData];
+    
+    [self setTitleToSelectedDate:[CalenderDataSource sharedDataSource].selectedDate];
 }
 
 - (void)didTapNextButton:(id)sender
@@ -83,11 +85,13 @@ style:UIBarButtonItemStylePlain
     [CalenderDataSource sharedDataSource].selectedDate = [[CalenderDataSource sharedDataSource].selectedDate monthLaterDate];
     
     [self.collectionView reloadData];
+    
+    [self setTitleToSelectedDate:[CalenderDataSource sharedDataSource].selectedDate];
 }
 
 #pragma mark - private methods
 
-- (void)setSelectedDate:(NSDate *)selectedDate
+- (void)setTitleToSelectedDate:(NSDate *)selectedDate
 {
     [CalenderDataSource sharedDataSource].selectedDate = selectedDate;
     
