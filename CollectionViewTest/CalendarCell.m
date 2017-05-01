@@ -59,14 +59,11 @@
     switch (indexPath.section) {
         case 0:
             //セクション０なら、曜日を
-            //TODO:日は赤、土は青
             self.dayLabel.text = self.days[indexPath.row];
             break;
             
         case 1:{
             //セクション１なら、日を返す
-            //TODO:日は赤、土は青
-            //self.dayLabel.text = [NSString stringWithFormat:@"%zd",indexPath.row + 1];
             NSDateFormatter *formatter = [NSDateFormatter new];
             formatter.dateFormat = @"d";
             self.dayLabel.text = [formatter stringFromDate:[self dateForCellAtIndexPath:indexPath]];
@@ -123,4 +120,8 @@
     return firstDateMonth;
 }
 
+-(BOOL)judgeSelectedMonthInclude:(NSIndexPath*)indexPath{
+    
+    return YES;
+}
 @end
