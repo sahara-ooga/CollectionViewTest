@@ -76,9 +76,15 @@
         default:
             break;
     }
-    
-    
-    
+}
+
+
+/**
+ セルを再利用前に初期化する
+ */
+-(void)prepareForReuse{
+    self.dayLabel.text = @"";
+    self.dayLabel.textColor = [UIColor blackColor];
 }
 
 - (NSDate *)dateForCellAtIndexPath:(NSIndexPath *)indexPath
