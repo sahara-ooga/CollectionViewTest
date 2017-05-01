@@ -6,14 +6,17 @@
 //  Copyright © 2017年 stv. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CallenderViewController.h"
 
-@interface ViewController ()
+@interface CallenderViewController ()<UICollectionViewDelegateFlowLayout>
 
 @end
 
-@implementation ViewController
-
+@implementation CallenderViewController
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    self.days = @[@"日",@"月",@"火",@"水",@"木",@"金",@"土"];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
