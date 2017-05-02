@@ -11,4 +11,5 @@
 @interface NSDate (Extension)
 - (NSDate *)monthAgoDate;
 - (NSDate *)monthLaterDate;
+- (BOOL)isContainedInMonthOf:(NSDate*)referenceDate;
 @end

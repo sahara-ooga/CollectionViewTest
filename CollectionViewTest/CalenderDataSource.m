@@ -18,8 +18,6 @@ NSUInteger const DaysPerWeek = 7;
 
 @interface CalenderDataSource()
 
-//@property (nonatomic) NSDate* firstDateOfMonth;
-
 @end
 
 @implementation CalenderDataSource
@@ -60,13 +58,13 @@ static CalenderDataSource* _sharedInstance = nil;
             return self.days.count;
             break;
         case day:{
-            //FIXME　その月の日数に変更
             // calculate number of weeks
             NSRange rangeOfWeeks = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitWeekOfMonth
                                                                       inUnit:NSCalendarUnitMonth
                                                                      forDate:[self firstDateOfMonth]];
             NSUInteger numberOfWeeks = rangeOfWeeks.length;
             NSInteger numberOfItems = numberOfWeeks * DaysPerWeek;
+            
             return numberOfItems;
         }
         default:

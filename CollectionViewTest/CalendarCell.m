@@ -8,17 +8,11 @@
 
 #import "CalendarCell.h"
 #import "CalenderDataSource.h"
+#import "NSDate+Extension.h"
 
 @interface CalendarCell ()
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 @property (nonatomic) NSArray* days;
-
-//@property (nonatomic) NSDate* firstDateOfMonth;
-
-/**
- *  Selected date displayed by the calendar
- */
-//@property (nonatomic, strong) NSDate *selectedDate;
 
 @end
 
@@ -64,9 +58,17 @@
             
         case 1:{
             //セクション１なら、日を返す
+            NSDate* date = [self dateForCellAtIndexPath:indexPath];
+            //NSInteger* month = [calender component:NSCalendarUnitMonth fromDate:date];
+            //TODO:当該月にふくまれていなければ、文字色を灰色にする
+            NSDate *selectedDate = [CalenderDataSource sharedDataSource].selectedDate;
+            if (![date isContainedInMonthOf:selectedDate]) {
+                self.dayLabel.textColor = [UIColor lightGrayColor];
+            }
+            
             NSDateFormatter *formatter = [NSDateFormatter new];
             formatter.dateFormat = @"d";
-            self.dayLabel.text = [formatter stringFromDate:[self dateForCellAtIndexPath:indexPath]];
+            self.dayLabel.text = [formatter stringFromDate:date];
             
             break;
         }
@@ -84,6 +86,7 @@
     self.dayLabel.textColor = [UIColor blackColor];
 }
 
+
 - (NSDate *)dateForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     // 「月の初日が週の何日目か」を計算する
@@ -96,12 +99,12 @@
     NSDateComponents *dateComponents = [NSDateComponents new];
     dateComponents.day = indexPath.item - (ordinalityOfFirstDay - 1);
     
-    NSDate *date =
-    [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents
+    NSDate *date = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents
                                                   toDate:self.firstDateOfMonth
                                                  options:0];
     return date;
 }
+
 
 /**
  *  Return First date of the month
@@ -120,8 +123,17 @@
     return firstDateMonth;
 }
 
--(BOOL)judgeSelectedMonthInclude:(NSIndexPath*)indexPath{
-    
-    return YES;
+/**
+ 引数の日に含まれる月の、月初にあたる日を返す
+
+ @param date の含まれる月の月初にあたる日のNSDateを返す
+ @return 引数の含まれる月の月初にあたる日のNSDateを返す
+ */
+- (NSDate *)firstDateOfMonthFor:(NSDate*)date{
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay
+                                                                   fromDate:date];
+    components.day = 1;
+    return [[NSCalendar currentCalendar] dateFromComponents:components];
 }
+
 @end
