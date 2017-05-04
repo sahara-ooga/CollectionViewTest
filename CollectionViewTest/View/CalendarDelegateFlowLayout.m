@@ -8,6 +8,7 @@
 
 #import "CalendarDelegateFlowLayout.h"
 #import "CalendarDataSource.h"
+#import "Const.h"
 
 static CGFloat const CellMargin = 2.0f;
 
@@ -18,7 +19,7 @@ static CGFloat const CellMargin = 2.0f;
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger numberOfMargin = 8;
+    NSInteger numberOfMargin = DaysPerWeek + 1;
     CGFloat width = floorf((collectionView.frame.size.width - CellMargin * numberOfMargin) / DaysPerWeek);
     CGFloat height = width * 1.5f;
     
