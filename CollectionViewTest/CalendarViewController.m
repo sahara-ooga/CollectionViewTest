@@ -13,21 +13,11 @@
 #import "NSDate+Extension.h"
 
 @interface CalendarViewController ()
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) CalendarDataSource* calenderDataSource;
 @property (nonatomic) CalendarDelegateFlowLayout* calenderDelegateFlowLayout;
-/**
- *  Selected date displayed by the calendar
- */
-//@property (nonatomic, strong) NSDate *selectedDate;
-
 @end
 
 @implementation CalendarViewController
-
-
-@synthesize collectionView;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
