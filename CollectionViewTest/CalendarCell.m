@@ -9,6 +9,7 @@
 #import "CalendarCell.h"
 #import "CalendarDataSource.h"
 #import "NSDate+Extension.h"
+#import "Const.h"
 
 @interface CalendarCell ()
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
@@ -49,12 +50,12 @@
     }
     
     switch (indexPath.section) {
-        case 0:
+        case weekDay:
             //セクション０なら、曜日を
             self.dayLabel.text = self.days[indexPath.row];
             break;
             
-        case 1:{
+        case day:{
             //セクション１なら、日を返す
             NSDate* date = [self dateForCellAtIndexPath:indexPath];
             //TODO:当該月にふくまれていなければ、文字色を灰色にする

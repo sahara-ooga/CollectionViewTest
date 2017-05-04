@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 extern NSString* const kSelectedDate;
+
+typedef NS_ENUM(NSUInteger, SectionName){
+    weekDay = 0,
+    day
+};
+
 @interface Const : NSObject
 
 @end

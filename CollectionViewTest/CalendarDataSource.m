@@ -11,11 +11,6 @@
 #import "NSDate+Extension.h"
 #import "Const.h"
 
-typedef NS_ENUM(NSUInteger, SectionName){
-    date = 0,
-    day
-};
-
 NSUInteger const DaysPerWeek = 7;
 
 @interface CalendarDataSource()
@@ -59,7 +54,7 @@ static CalendarDataSource* _sharedInstance = nil;
     numberOfItemsInSection:(NSInteger)section{
     //セクション０が曜日を表示、セクション１が日を表示
     switch (section) {
-        case date:
+        case weekDay:
             return self.days.count;
             break;
         case day:{
