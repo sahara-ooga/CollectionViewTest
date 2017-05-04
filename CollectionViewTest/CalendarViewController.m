@@ -6,16 +6,16 @@
 //  Copyright © 2017年 stv. All rights reserved.
 //
 
-#import "CalenderViewController.h"
+#import "CalendarViewController.h"
 #import "CalendarCell.h"
-#import "CalenderDataSource.h"
-#import "CalenderDelegateFlowLayout.h"
+#import "CalendarDataSource.h"
+#import "CalendarDelegateFlowLayout.h"
 #import "NSDate+Extension.h"
 
-@interface CalenderViewController ()
+@interface CalendarViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic) CalenderDataSource* calenderDataSource;
-@property (nonatomic) CalenderDelegateFlowLayout* calenderDelegateFlowLayout;
+@property (nonatomic) CalendarDataSource* calenderDataSource;
+@property (nonatomic) CalendarDelegateFlowLayout* calenderDelegateFlowLayout;
 /**
  *  Selected date displayed by the calendar
  */
@@ -23,7 +23,9 @@
 
 @end
 
-@implementation CalenderViewController
+@implementation CalendarViewController
+
+
 @synthesize collectionView;
 
 - (void)viewDidLoad {
@@ -33,10 +35,10 @@
                                                     bundle:nil]
           forCellWithReuseIdentifier:[CalendarCell className]];
     
-    self.calenderDataSource = [[CalenderDataSource alloc] init];
+    self.calenderDataSource = [CalendarDataSource sharedDataSource];
     self.collectionView.dataSource = self.calenderDataSource;
     
-    self.calenderDelegateFlowLayout = [[CalenderDelegateFlowLayout alloc] init];
+    self.calenderDelegateFlowLayout = [[CalendarDelegateFlowLayout alloc] init];
     self.collectionView.delegate = self.calenderDelegateFlowLayout;
 }
 
@@ -44,17 +46,21 @@
     [super viewWillAppear:animated];
     
     // set up toolbar
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-44, self.view.bounds.size.width, 44)];
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,
+                                                                     self.view.bounds.size.height-44,
+                                                                     self.view.bounds.size.width, 44)];
+    
     toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     toolbar.backgroundColor = [UIColor blackColor];
 
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"前へ"
-style:UIBarButtonItemStylePlain
-                                                                 target:self
-                                                                  action:@selector(didTapPrevButton:)];
-    UIBarButtonItem *forwardButton = [[UIBarButtonItem alloc] initWithTitle:@"次へ"
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:self
+                                                                  action:@selector(didTapPrevButton:)];
+    
+    UIBarButtonItem *forwardButton = [[UIBarButtonItem alloc] initWithTitle:@"次へ"
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:self
                                                                      action:@selector(didTapNextButton:)];
     
     UIBarButtonItem *buttonGap = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
@@ -64,6 +70,7 @@ style:UIBarButtonItemStylePlain
     
     [self.view addSubview:toolbar];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -71,30 +78,32 @@ style:UIBarButtonItemStylePlain
 
 #pragma mark - Action methods
 
+/**
+ 「前へ」ボタンが押されたら実行される
+
+ @param sender ツールバー左下の「前へ」ボタン
+ */
 - (void)didTapPrevButton:(id)sender
 {
-    [CalenderDataSource sharedDataSource].selectedDate = [[CalenderDataSource sharedDataSource].selectedDate monthAgoDate];
-    
+    [CalendarDataSource makeSelectedDateAMonthPrevius];
+    CalendarDataSource* dataSource = [CalendarDataSource sharedDataSource];
+    NSLog(@"%@",dataSource.selectedDate);
     [self.collectionView reloadData];
-    
-    [self setTitleToSelectedDate:[CalenderDataSource sharedDataSource].selectedDate];
+    [self setTitleToSelectedDate:dataSource.selectedDate];
 }
 
 - (void)didTapNextButton:(id)sender
 {
-    [CalenderDataSource sharedDataSource].selectedDate = [[CalenderDataSource sharedDataSource].selectedDate monthLaterDate];
-    
+    [CalendarDataSource makeSelectedDateAMonthFoward];
+    CalendarDataSource* dataSource = [CalendarDataSource sharedDataSource];
     [self.collectionView reloadData];
-    
-    [self setTitleToSelectedDate:[CalenderDataSource sharedDataSource].selectedDate];
+    [self setTitleToSelectedDate:dataSource.selectedDate];
 }
 
 #pragma mark - private methods
 
 - (void)setTitleToSelectedDate:(NSDate *)selectedDate
 {
-    [CalenderDataSource sharedDataSource].selectedDate = selectedDate;
-    
     // update title text
     NSDateFormatter *formatter = [NSDateFormatter new];
     formatter.dateFormat = @"yyyy年M月";

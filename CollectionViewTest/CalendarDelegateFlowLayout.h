@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
-@interface CalenderDelegateFlowLayout : NSObject<UICollectionViewDelegateFlowLayout>
+@interface CalendarDelegateFlowLayout : NSObject<UICollectionViewDelegateFlowLayout>
 
 @end

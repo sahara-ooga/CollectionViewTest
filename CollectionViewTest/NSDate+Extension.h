@@ -11,5 +11,12 @@
 @interface NSDate (Extension)
 - (NSDate *)monthAgoDate;
 - (NSDate *)monthLaterDate;
+- (NSDate *)firstDateOfMonth;
 - (BOOL)isContainedInMonthOf:(NSDate*)referenceDate;
+@property (readonly) NSInteger day;
+@property (readonly) NSInteger month;
+@property (readonly) NSInteger year;
+@property (readonly) NSInteger weekDay;
+@property (readonly) NSInteger daysOfMonth;
+@property (readonly) NSInteger neededRowNumberForCalendar;
 @end

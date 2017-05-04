@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "Const.h"
 @interface AppDelegate ()
 
 @end
@@ -15,8 +15,15 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+   // NSMutableDictionary *defaults = [NSMutableDictionary dictionary];
+    [ud setObject:[NSDate date]
+                 forKey:kSelectedDate];
+   // [ud registerDefaults:defaults];
+    [ud synchronize];
     return YES;
 }
 

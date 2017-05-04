@@ -7,7 +7,7 @@
 //
 
 #import "CalendarCell.h"
-#import "CalenderDataSource.h"
+#import "CalendarDataSource.h"
 #import "NSDate+Extension.h"
 
 @interface CalendarCell ()
@@ -61,7 +61,7 @@
             NSDate* date = [self dateForCellAtIndexPath:indexPath];
             //NSInteger* month = [calender component:NSCalendarUnitMonth fromDate:date];
             //TODO:当該月にふくまれていなければ、文字色を灰色にする
-            NSDate *selectedDate = [CalenderDataSource sharedDataSource].selectedDate;
+            NSDate *selectedDate = [CalendarDataSource sharedDataSource].selectedDate;
             if (![date isContainedInMonthOf:selectedDate]) {
                 self.dayLabel.textColor = [UIColor lightGrayColor];
             }
@@ -113,7 +113,7 @@
  */
 - (NSDate *)firstDateOfMonth
 {
-    NSDate *selectedDate = [CalenderDataSource sharedDataSource].selectedDate;
+    NSDate *selectedDate = [CalendarDataSource sharedDataSource].selectedDate;
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay
                                                                    fromDate:selectedDate];
     components.day = 1;

@@ -11,7 +11,7 @@
 
 extern NSUInteger const DaysPerWeek;
 
-@interface CalenderDataSource : NSObject<UICollectionViewDataSource>
+@interface CalendarDataSource : NSObject<UICollectionViewDataSource>
 
 @property (nonatomic) NSArray *days;
 
@@ -19,5 +19,7 @@ extern NSUInteger const DaysPerWeek;
  *  Selected date displayed by the calendar
  */
 @property (nonatomic, strong) NSDate *selectedDate;
-+(CalenderDataSource*)sharedDataSource;
++(CalendarDataSource*)sharedDataSource;
++(void)makeSelectedDateAMonthPrevius;
++(void)makeSelectedDateAMonthFoward;
 @end
