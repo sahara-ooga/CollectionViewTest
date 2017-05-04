@@ -10,6 +10,7 @@
 #import "NSDate+Extension.h"
 #import "CalendarDataSource.h"
 #import "CalendarViewController.h"
+#import "NSString+decodeJSONString.h"
 
 @interface CollectionViewTestTests : XCTestCase
 
@@ -195,5 +196,32 @@
     NSInteger rowNum = [dataSource collectionView:cv
                            numberOfItemsInSection:1];
     XCTAssertEqual(rowNum, 6*7);
+}
+
+-(void)testWeekDayArray{
+    //曜日の配列
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    calendar.locale = [NSLocale localeWithLocaleIdentifier:@"ja_JP"];
+    NSArray *weekDaySymbols = [calendar standaloneWeekdaySymbols];
+    NSArray *weekDayShortSymbols = [calendar shortStandaloneWeekdaySymbols];
+    
+    NSLog(@"weekDaySymbols is ¥n%@",[weekDaySymbols.description decodeJSONString]);
+    NSLog(@"weekDayShortSymbols is ¥n%@",[weekDayShortSymbols.description decodeJSONString]);
+    
+    XCTAssertEqualObjects(weekDaySymbols[0], @"日曜日");
+    XCTAssertEqualObjects(weekDaySymbols[1], @"月曜日");
+    XCTAssertEqualObjects(weekDaySymbols[2], @"火曜日");
+    XCTAssertEqualObjects(weekDaySymbols[3], @"水曜日");
+    XCTAssertEqualObjects(weekDaySymbols[4], @"木曜日");
+    XCTAssertEqualObjects(weekDaySymbols[5], @"金曜日");
+    XCTAssertEqualObjects(weekDaySymbols[6], @"土曜日");
+
+    XCTAssertEqualObjects(weekDayShortSymbols[0], @"日");
+    XCTAssertEqualObjects(weekDayShortSymbols[1], @"月");
+    XCTAssertEqualObjects(weekDayShortSymbols[2], @"火");
+    XCTAssertEqualObjects(weekDayShortSymbols[3], @"水");
+    XCTAssertEqualObjects(weekDayShortSymbols[4], @"木");
+    XCTAssertEqualObjects(weekDayShortSymbols[5], @"金");
+    XCTAssertEqualObjects(weekDayShortSymbols[6], @"土");
 }
 @end

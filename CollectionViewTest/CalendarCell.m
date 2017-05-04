@@ -21,12 +21,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    // Initialization code
-    self.days = @[@"日",@"月",@"火",@"水",@"木",@"金",@"土"];
-    
-    //FIXME: これはKVOなりで他のクラスと同期をとる
-    //FIXME: 選ばれている月
-    //self.selectedDate = [NSDate date];
+    //曜日の配列
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    calendar.locale = [NSLocale localeWithLocaleIdentifier:@"ja_JP"];
+    self.days = [calendar shortStandaloneWeekdaySymbols];
 }
 
 +(NSString *)className{
@@ -120,19 +118,6 @@
     NSDate *firstDateMonth = [[NSCalendar currentCalendar] dateFromComponents:components];
     
     return firstDateMonth;
-}
-
-/**
- 引数の日に含まれる月の、月初にあたる日を返す
-
- @param date の含まれる月の月初にあたる日のNSDateを返す
- @return 引数の含まれる月の月初にあたる日のNSDateを返す
- */
-- (NSDate *)firstDateOfMonthFor:(NSDate*)date{
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay
-                                                                   fromDate:date];
-    components.day = 1;
-    return [[NSCalendar currentCalendar] dateFromComponents:components];
 }
 
 @end

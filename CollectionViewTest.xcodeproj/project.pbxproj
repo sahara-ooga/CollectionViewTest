@@ -10,6 +10,8 @@
 		10096B4D1EBA27F30098ACBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FA1F6751EB6F2330080E2C0 /* Main.storyboard */; };
 		10096B501EBABA220098ACBF /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 10096B4F1EBABA220098ACBF /* Const.m */; };
 		10096B511EBABA220098ACBF /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 10096B4F1EBABA220098ACBF /* Const.m */; };
+		10096B541EBAE1E40098ACBF /* NSString+decodeJSONString.m in Sources */ = {isa = PBXBuildFile; fileRef = 10096B531EBAE1E40098ACBF /* NSString+decodeJSONString.m */; };
+		10096B551EBAE1E40098ACBF /* NSString+decodeJSONString.m in Sources */ = {isa = PBXBuildFile; fileRef = 10096B531EBAE1E40098ACBF /* NSString+decodeJSONString.m */; };
 		1FA1F66E1EB6F2330080E2C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA1F66D1EB6F2330080E2C0 /* main.m */; };
 		1FA1F6711EB6F2330080E2C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA1F6701EB6F2330080E2C0 /* AppDelegate.m */; };
 		1FA1F6741EB6F2330080E2C0 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA1F6731EB6F2330080E2C0 /* CalendarViewController.m */; };
@@ -37,6 +39,8 @@
 /* Begin PBXFileReference section */
 		10096B4E1EBABA210098ACBF /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		10096B4F1EBABA220098ACBF /* Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
+		10096B521EBAE1E40098ACBF /* NSString+decodeJSONString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+decodeJSONString.h"; sourceTree = "<group>"; };
+		10096B531EBAE1E40098ACBF /* NSString+decodeJSONString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+decodeJSONString.m"; sourceTree = "<group>"; };
 		1FA1F6691EB6F2330080E2C0 /* CollectionViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA1F66D1EB6F2330080E2C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1FA1F66F1EB6F2330080E2C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 		1FA1F66C1EB6F2330080E2C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				10096B521EBAE1E40098ACBF /* NSString+decodeJSONString.h */,
+				10096B531EBAE1E40098ACBF /* NSString+decodeJSONString.m */,
 				1FA1F66D1EB6F2330080E2C0 /* main.m */,
 				1FA1F6A21EB72CF40080E2C0 /* NSDate+Extension.h */,
 				1FA1F6A31EB72CF40080E2C0 /* NSDate+Extension.m */,
@@ -274,6 +280,7 @@
 				1FA1F6A41EB72CF40080E2C0 /* NSDate+Extension.m in Sources */,
 				10096B501EBABA220098ACBF /* Const.m in Sources */,
 				1FA1F6741EB6F2330080E2C0 /* CalendarViewController.m in Sources */,
+				10096B541EBAE1E40098ACBF /* NSString+decodeJSONString.m in Sources */,
 				1FA1F69B1EB6FD2D0080E2C0 /* CalendarDataSource.m in Sources */,
 				1FA1F6711EB6F2330080E2C0 /* AppDelegate.m in Sources */,
 				1FA1F66E1EB6F2330080E2C0 /* main.m in Sources */,
@@ -286,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10096B551EBAE1E40098ACBF /* NSString+decodeJSONString.m in Sources */,
 				1FA1F6871EB6F2330080E2C0 /* CollectionViewTestTests.m in Sources */,
 				10096B511EBABA220098ACBF /* Const.m in Sources */,
 			);
