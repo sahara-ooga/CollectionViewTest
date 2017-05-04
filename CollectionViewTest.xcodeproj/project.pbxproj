@@ -105,9 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				1FA1F69E1EB6FD510080E2C0 /* Controller */,
-				1FA1F69D1EB6FD470080E2C0 /* View */,
 				1FA1F69C1EB6FD370080E2C0 /* Resources */,
 				1FA1F66C1EB6F2330080E2C0 /* Supporting Files */,
+				1FA1F69D1EB6FD470080E2C0 /* View */,
 			);
 			path = CollectionViewTest;
 			sourceTree = "<group>";
@@ -115,15 +115,16 @@
 		1FA1F66C1EB6F2330080E2C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				10096B4E1EBABA210098ACBF /* Const.h */,
+				10096B4F1EBABA220098ACBF /* Const.m */,
+				1FA1F6A21EB72CF40080E2C0 /* NSDate+Extension.h */,
+				1FA1F6A31EB72CF40080E2C0 /* NSDate+Extension.m */,
 				10096B521EBAE1E40098ACBF /* NSString+decodeJSONString.h */,
 				10096B531EBAE1E40098ACBF /* NSString+decodeJSONString.m */,
 				1FA1F66D1EB6F2330080E2C0 /* main.m */,
-				1FA1F6A21EB72CF40080E2C0 /* NSDate+Extension.h */,
-				1FA1F6A31EB72CF40080E2C0 /* NSDate+Extension.m */,
-				10096B4E1EBABA210098ACBF /* Const.h */,
-				10096B4F1EBABA220098ACBF /* Const.m */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		1FA1F6851EB6F2330080E2C0 /* CollectionViewTestTests */ = {
@@ -139,16 +140,16 @@
 			isa = PBXGroup;
 			children = (
 				1FA1F6781EB6F2330080E2C0 /* Assets.xcassets */,
-				1FA1F67A1EB6F2330080E2C0 /* LaunchScreen.storyboard */,
 				1FA1F67D1EB6F2330080E2C0 /* Info.plist */,
+				1FA1F67A1EB6F2330080E2C0 /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		1FA1F69D1EB6FD470080E2C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1FA1F6751EB6F2330080E2C0 /* Main.storyboard */,
 				1FA1F6941EB6FA230080E2C0 /* CalendarCell.h */,
 				1FA1F6951EB6FA230080E2C0 /* CalendarCell.m */,
 				1FA1F6961EB6FA230080E2C0 /* CalendarCell.xib */,
@@ -156,8 +157,10 @@
 				1FA1F69A1EB6FD2D0080E2C0 /* CalendarDataSource.m */,
 				1FA1F69F1EB72A650080E2C0 /* CalendarDelegateFlowLayout.h */,
 				1FA1F6A01EB72A650080E2C0 /* CalendarDelegateFlowLayout.m */,
+				1FA1F6751EB6F2330080E2C0 /* Main.storyboard */,
 			);
 			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		1FA1F69E1EB6FD510080E2C0 /* Controller */ = {
@@ -169,6 +172,7 @@
 				1FA1F6731EB6F2330080E2C0 /* CalendarViewController.m */,
 			);
 			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +320,7 @@
 				1FA1F6761EB6F2330080E2C0 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		1FA1F67A1EB6F2330080E2C0 /* LaunchScreen.storyboard */ = {
@@ -324,6 +329,7 @@
 				1FA1F67B1EB6F2330080E2C0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -424,7 +430,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PCCZJUYRT6;
-				INFOPLIST_FILE = CollectionViewTest/Info.plist;
+				INFOPLIST_FILE = CollectionViewTest/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = stv.CollectionViewTest;
@@ -437,7 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PCCZJUYRT6;
-				INFOPLIST_FILE = CollectionViewTest/Info.plist;
+				INFOPLIST_FILE = CollectionViewTest/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = stv.CollectionViewTest;
