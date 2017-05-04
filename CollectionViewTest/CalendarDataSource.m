@@ -60,16 +60,7 @@ static CalendarDataSource* _sharedInstance = nil;
             return self.days.count;
             break;
         case day:{
-            // calculate number of weeks
-//            NSCalendar* calendar = [NSCalendar currentCalendar];
-//            NSDateComponents *components = [[NSDateComponents alloc] init];
-//            components.year = self.selectedDate.year;
-//            components.month = self.selectedDate.month;
-//            NSDate *date = [calendar dateFromComponents:components];
-//            NSRange rangeOfWeeks = [calendar rangeOfUnit:NSCalendarUnitWeekOfMonth
-//                                                                      inUnit:NSCalendarUnitMonth
-//                                                                     forDate:date];
-            
+            // calculate number of weeks            
             NSUInteger numberOfWeeks = self.selectedDate.neededRowNumberForCalendar;
             NSInteger numberOfItems = numberOfWeeks * DaysPerWeek;
             NSLog(@"%zd / %zd numberOfItems:%zd",self.selectedDate.year,self.selectedDate.month,numberOfItems);

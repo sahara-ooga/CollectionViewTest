@@ -59,7 +59,6 @@
         case 1:{
             //セクション１なら、日を返す
             NSDate* date = [self dateForCellAtIndexPath:indexPath];
-            //NSInteger* month = [calender component:NSCalendarUnitMonth fromDate:date];
             //TODO:当該月にふくまれていなければ、文字色を灰色にする
             NSDate *selectedDate = [CalendarDataSource sharedDataSource].selectedDate;
             if (![date isContainedInMonthOf:selectedDate]) {
