@@ -12,7 +12,7 @@
 
 @interface CalendarCell ()
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
-@property (nonatomic) NSArray* days;
+@property (nonatomic) NSArray<NSString*>* days;
 
 @end
 

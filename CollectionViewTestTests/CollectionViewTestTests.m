@@ -202,8 +202,8 @@
     //曜日の配列
     NSCalendar *calendar = [NSCalendar currentCalendar];
     calendar.locale = [NSLocale localeWithLocaleIdentifier:@"ja_JP"];
-    NSArray *weekDaySymbols = [calendar standaloneWeekdaySymbols];
-    NSArray *weekDayShortSymbols = [calendar shortStandaloneWeekdaySymbols];
+    NSArray<NSString*> *weekDaySymbols = [calendar standaloneWeekdaySymbols];
+    NSArray<NSString*> *weekDayShortSymbols = [calendar shortStandaloneWeekdaySymbols];
     
     NSLog(@"weekDaySymbols is ¥n%@",[weekDaySymbols.description decodeJSONString]);
     NSLog(@"weekDayShortSymbols is ¥n%@",[weekDayShortSymbols.description decodeJSONString]);
