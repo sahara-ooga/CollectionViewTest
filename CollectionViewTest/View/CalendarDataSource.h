@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
-extern NSUInteger const DaysPerWeek;
+//extern NSUInteger const DaysPerWeek;
 
 @interface CalendarDataSource : NSObject<UICollectionViewDataSource>
 

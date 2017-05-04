@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 extern NSString* const kSelectedDate;
-
+extern NSUInteger const DaysPerWeek;
 typedef NS_ENUM(NSUInteger, SectionName){
     weekDay = 0,
     day

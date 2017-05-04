@@ -8,6 +8,8 @@
 
 #import "Const.h"
 NSString* const kSelectedDate = @"selectedDate";
+NSUInteger const DaysPerWeek = 7;
+
 @implementation Const
 
 @end
