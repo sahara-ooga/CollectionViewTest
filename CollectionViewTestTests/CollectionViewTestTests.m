@@ -205,8 +205,8 @@
     NSArray<NSString*> *weekDaySymbols = [calendar standaloneWeekdaySymbols];
     NSArray<NSString*> *weekDayShortSymbols = [calendar shortStandaloneWeekdaySymbols];
     
-    NSLog(@"weekDaySymbols is ¥n%@",[weekDaySymbols.description decodeJSONString]);
-    NSLog(@"weekDayShortSymbols is ¥n%@",[weekDayShortSymbols.description decodeJSONString]);
+    NSLog(@"weekDaySymbols is \n%@",[weekDaySymbols.description decodeJSONString]);
+    NSLog(@"weekDayShortSymbols is \n%@",[weekDayShortSymbols.description decodeJSONString]);
     
     XCTAssertEqualObjects(weekDaySymbols[0], @"日曜日");
     XCTAssertEqualObjects(weekDaySymbols[1], @"月曜日");
