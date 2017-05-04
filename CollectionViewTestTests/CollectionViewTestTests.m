@@ -224,4 +224,13 @@
     XCTAssertEqualObjects(weekDayShortSymbols[5], @"金");
     XCTAssertEqualObjects(weekDayShortSymbols[6], @"土");
 }
+
+- (void)testTitleFormattedString{
+    NSCalendar *calender = [NSCalendar currentCalendar];
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    components.year = 2017;
+    components.month = 12;
+    NSDate *date = [calender dateFromComponents:components];
+    XCTAssertEqualObjects(date.titleFormattedString, @"2017年12月");
+}
 @end

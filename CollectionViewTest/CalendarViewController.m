@@ -92,13 +92,14 @@
 
 #pragma mark - private methods
 
+/**
+ update title text
+
+ @param selectedDate タイトルに反映したいNSDate
+ */
 - (void)setTitleToSelectedDate:(NSDate *)selectedDate
 {
     // update title text
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    formatter.dateFormat = @"yyyy年M月";
-    self.navigationItem.title = [formatter stringFromDate:selectedDate];
+    self.navigationItem.title = selectedDate.titleFormattedString;
 }
-
-
 @end

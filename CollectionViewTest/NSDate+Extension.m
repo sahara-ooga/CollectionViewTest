@@ -154,4 +154,10 @@
                           inUnit:NSCalendarUnitMonth
                          forDate:self].length;
 }
+
+-(NSString*)titleFormattedString{
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"yyyy年M月";
+    return [formatter stringFromDate:self];
+}
 @end
