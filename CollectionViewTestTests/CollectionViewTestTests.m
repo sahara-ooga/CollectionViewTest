@@ -11,6 +11,7 @@
 #import "CalendarDataSource.h"
 #import "CalendarViewController.h"
 #import "NSString+decodeJSONString.h"
+#import "Const.h"
 
 @interface CollectionViewTestTests : XCTestCase
 
@@ -193,8 +194,10 @@
     
     UICollectionView* cv = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)
                                               collectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
+    
     NSInteger rowNum = [dataSource collectionView:cv
                            numberOfItemsInSection:1];
+    
     XCTAssertEqual(rowNum, 6*7);
 }
 
@@ -233,4 +236,29 @@
     NSDate *date = [calender dateFromComponents:components];
     XCTAssertEqualObjects(date.titleFormattedString, @"2017年12月");
 }
+
+-(void)testMakeSelectedDateAMonthPrevius{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:[NSDate date]
+           forKey:kSelectedDate];
+    [ud synchronize];
+    
+    [CalendarDataSource makeSelectedDateAMonthPrevius];
+    
+    NSDate* previusDate = [ud objectForKey:kSelectedDate];
+    XCTAssertEqual(previusDate.month + 1, [NSDate date].month);
+}
+
+-(void)testMakeSelectedDateAMonthForward{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:[NSDate date]
+           forKey:kSelectedDate];
+    [ud synchronize];
+    
+    [CalendarDataSource makeSelectedDateAMonthFoward];
+    
+    NSDate* forwardDate = [ud objectForKey:kSelectedDate];
+    XCTAssertEqual(forwardDate.month - 1, [NSDate date].month);
+}
+
 @end
