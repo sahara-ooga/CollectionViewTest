@@ -19,10 +19,8 @@
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-   // NSMutableDictionary *defaults = [NSMutableDictionary dictionary];
     [ud setObject:[NSDate date]
                  forKey:kSelectedDate];
-   // [ud registerDefaults:defaults];
     [ud synchronize];
     return YES;
 }

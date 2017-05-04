@@ -11,11 +11,6 @@
 #import "NSDate+Extension.h"
 #import "Const.h"
 
-typedef NS_ENUM(NSUInteger, SectionName){
-    date = 0,
-    day
-};
-
 NSUInteger const DaysPerWeek = 7;
 
 @interface CalendarDataSource()
@@ -38,9 +33,12 @@ static CalendarDataSource* _sharedInstance = nil;
 -(id)init{
     self = [super init];
     
-    self.days = @[@"日",@"月",@"火",@"水",@"木",@"金",@"土"];
+    //曜日の配列
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    calendar.locale = [NSLocale localeWithLocaleIdentifier:@"ja_JP"];
+    self.days = [calendar shortStandaloneWeekdaySymbols];
     
-    //FIXME: 選ばれている月
+    //選ばれている月
     self.selectedDate = [NSDate date];
     
     return self;
@@ -56,23 +54,13 @@ static CalendarDataSource* _sharedInstance = nil;
     numberOfItemsInSection:(NSInteger)section{
     //セクション０が曜日を表示、セクション１が日を表示
     switch (section) {
-        case date:
+        case weekDay:
             return self.days.count;
             break;
         case day:{
-            // calculate number of weeks
-//            NSCalendar* calendar = [NSCalendar currentCalendar];
-//            NSDateComponents *components = [[NSDateComponents alloc] init];
-//            components.year = self.selectedDate.year;
-//            components.month = self.selectedDate.month;
-//            NSDate *date = [calendar dateFromComponents:components];
-//            NSRange rangeOfWeeks = [calendar rangeOfUnit:NSCalendarUnitWeekOfMonth
-//                                                                      inUnit:NSCalendarUnitMonth
-//                                                                     forDate:date];
-            
+            // calculate number of weeks            
             NSUInteger numberOfWeeks = self.selectedDate.neededRowNumberForCalendar;
             NSInteger numberOfItems = numberOfWeeks * DaysPerWeek;
-            NSLog(@"%zd / %zd numberOfItems:%zd",self.selectedDate.year,self.selectedDate.month,numberOfItems);
             return numberOfItems;
         }
             

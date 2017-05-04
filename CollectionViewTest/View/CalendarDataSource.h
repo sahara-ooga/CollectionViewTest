@@ -13,7 +13,7 @@ extern NSUInteger const DaysPerWeek;
 
 @interface CalendarDataSource : NSObject<UICollectionViewDataSource>
 
-@property (nonatomic) NSArray *days;
+@property (nonatomic) NSArray<NSString*> *days;
 
 /**
  *  Selected date displayed by the calendar

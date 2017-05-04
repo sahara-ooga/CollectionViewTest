@@ -19,4 +19,5 @@
 @property (readonly) NSInteger weekDay;
 @property (readonly) NSInteger daysOfMonth;
 @property (readonly) NSInteger neededRowNumberForCalendar;
+@property (readonly) NSString *titleFormattedString;
 @end
