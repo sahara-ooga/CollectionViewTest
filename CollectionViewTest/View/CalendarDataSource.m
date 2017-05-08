@@ -57,7 +57,7 @@ static CalendarDataSource* _sharedInstance = nil;
     switch (section) {
         case weekDay:
             return self.days.count;
-            break;
+            
         case day:{
             // calculate number of weeks            
             NSUInteger numberOfWeeks = self.selectedDate.neededRowNumberForCalendar;
