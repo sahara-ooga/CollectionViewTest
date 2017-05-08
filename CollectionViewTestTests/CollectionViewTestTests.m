@@ -261,4 +261,19 @@
     XCTAssertEqual(forwardDate.month - 1, [NSDate date].month);
 }
 
+-(void)testWeekOfMonth{
+    //NSDate型を作成
+    NSCalendar *calender = [NSCalendar currentCalendar];
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    components.year = 2017;
+    components.month = 4;
+    components.day = 1;
+    NSDate* date = [calender dateFromComponents:components];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSInteger numOfWeeks = [calendar rangeOfUnit:NSCalendarUnitWeekOfMonth
+                                          inUnit:NSCalendarUnitMonth
+                                         forDate:date].length;
+    XCTAssertEqual(numOfWeeks, 6);
+}
 @end

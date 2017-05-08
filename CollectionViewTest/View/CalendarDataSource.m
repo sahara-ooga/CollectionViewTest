@@ -11,8 +11,6 @@
 #import "NSDate+Extension.h"
 #import "Const.h"
 
-//NSUInteger const DaysPerWeek = 7;
-
 @interface CalendarDataSource()
 
 @end

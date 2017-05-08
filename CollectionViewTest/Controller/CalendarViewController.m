@@ -77,7 +77,6 @@
 {
     [CalendarDataSource makeSelectedDateAMonthPrevius];
     CalendarDataSource* dataSource = [CalendarDataSource sharedDataSource];
-    NSLog(@"%@",dataSource.selectedDate);
     [self.collectionView reloadData];
     [self setTitleToSelectedDate:dataSource.selectedDate];
 }
