@@ -7,6 +7,17 @@
 //
 
 #import "NSDate+Extension.h"
+#import "Const.h"
+
+typedef NS_ENUM(NSUInteger, WeekDay){
+    Sunday = 1,
+    Monday,Tuesday, Wednesday, Thursday, Friday, Saturday
+};
+
+typedef NS_ENUM(NSUInteger, MonthSymbol){
+    January = 1,
+    February,March, April, May, June, July, August, September, October, November, December
+};
 
 @implementation NSDate (Extension)
 /**
@@ -68,7 +79,7 @@
 }
 
 /**
- http://biz.hino-tama.com/wp-content/uploads/2013/10/calendar_rows.gifから作成
+ http://biz.hino-tama.com/creative/blog0012/から作成
 
  @return 自身が含まれる月をカレンダーで表示する際に必要な行数
  */
@@ -77,8 +88,8 @@
     NSDate* firstDate = [self firstDateOfMonth];
     
     //1日が土曜日の場合、2月なら5行必要.2月でなければ6行必要
-    if (firstDate.weekDay == 7) {
-        if (firstDate.month == 2) {
+    if (firstDate.weekDay == Saturday) {
+        if (firstDate.month == February) {
             return 5;
         }else{
             return 6;
@@ -86,7 +97,7 @@
     }
     
     //1日が金曜日なら、31日ある月なら6行必要、それ以外は5行必要
-    if (firstDate.weekDay == 6) {
+    if (firstDate.weekDay == Friday) {
         if (self.daysOfMonth == 31) {
             return 6;
         }else{
@@ -94,15 +105,15 @@
         }
     }
     
-    //「1日が日曜で2月」でないなら５行
+    //「1日が日曜かつ2月」でないなら５行
     //　言い換えると
     //「１日が日曜でない」または「２月でない」なら５行
-    if ((firstDate.weekDay != 1) || (self.month != 2)){
+    if ((firstDate.weekDay != Sunday) || (self.month != February)){
         return 5;
     }
     
     //「1日が日曜で2月」でかつうるう年なら５行
-    if (firstDate.weekDay == 1 && self.month == 2 && self.daysOfMonth == 29) {
+    if (firstDate.weekDay == Sunday && self.month == February && self.daysOfMonth == 29) {
         return 5;
     }
     
