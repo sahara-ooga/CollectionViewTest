@@ -34,11 +34,14 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    CGSize superViewSize = self.view.bounds.size;
+    CGFloat navigationBarHeight = self.navigationController.navigationBar.frame.size.height;
     
     // set up toolbar
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,
-                                                                     self.view.bounds.size.height-44,
-                                                                     self.view.bounds.size.width, 44)];
+                                                                     superViewSize.height-navigationBarHeight,
+                                                                     superViewSize.width,
+                                                                     navigationBarHeight)];
     
     toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     toolbar.backgroundColor = [UIColor blackColor];

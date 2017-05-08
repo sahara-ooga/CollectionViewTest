@@ -11,6 +11,9 @@
 #import "NSDate+Extension.h"
 #import "Const.h"
 
+static NSInteger const kNumberOfSection = 2;
+static NSInteger const kDefaultNumberOfDaysInMonth = 30;
+
 @interface CalendarDataSource()
 
 @end
@@ -45,7 +48,7 @@ static CalendarDataSource* _sharedInstance = nil;
 #pragma mark UICollectionViewDataSource
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     //曜日と日の2セクション
-    return 2;
+    return kNumberOfSection;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView
@@ -63,10 +66,8 @@ static CalendarDataSource* _sharedInstance = nil;
         }
             
         default:
-            break;
+            return kDefaultNumberOfDaysInMonth;
     }
-    
-    return 30;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
