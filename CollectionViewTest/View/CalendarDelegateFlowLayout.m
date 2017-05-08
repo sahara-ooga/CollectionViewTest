@@ -21,7 +21,14 @@ static CGFloat const CellMargin = 2.0f;
 {
     NSInteger numberOfMargin = DaysPerWeek + 1;
     CGFloat width = floorf((collectionView.frame.size.width - CellMargin * numberOfMargin) / DaysPerWeek);
-    CGFloat height = width * 1.5f;
+    
+    //曜日と日でセルの高さを変える
+    CGFloat height = 0.0;
+    if (indexPath.section == weekDay) {
+        height = width * 0.7f;
+    } else {
+        height = width * 1.5f;
+    }
     
     return CGSizeMake(width, height);
 }
